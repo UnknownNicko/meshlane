@@ -57,6 +57,13 @@ and writes all of the following and converts smoothly between them:
   from the face groups (MED, Gmsh...), e.g. `meshlane convert mesh.med case/case.foam`
   then `meshlane binary case/case.foam`.
 - **Ansys/APDL** `.inp` / `.cdb` reader & writer for FEA interoperability.
+- **Ansys Fluent** `.msh` and `.msh.h5` (HDF5) reader: rebuilds the volume cells
+  from the faces (tetra, pyramid, wedge, hexahedron, polyhedra; triangles, quads and
+  polygons in 2D), ASCII and binary, with the named zones as groups.
+- **Ansys Fluent** `.msh` writer, in the face-based layout Fluent reads: cell and
+  face zones from the groups, zone types chosen by name (`zone_types`), polyhedra.
+  `.msh` files are written as Gmsh by default: use `file_format="ansys"` (CLI:
+  `--output-format ansys`) for Fluent.
 - **CGNS** reader & writer (HDF5 files): unstructured and structured zones, linear
   and quadratic elements, MIXED sections and polyhedra (NGON_n/NFACE_n); boundary
   conditions and families as groups, flow solutions as point/cell data. Written files
