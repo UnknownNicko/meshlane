@@ -8,6 +8,12 @@ top; the meshio history follows below.
 
 ## Unreleased
 
+### Added
+- OpenVolumeMesh `.ovm` (ASCII) reader and writer. Tetrahedra, pyramids, wedges and
+  hexahedra are rebuilt from the half-face topology; shared edges and faces are written
+  once, with half-face normals pointing into the cells as OpenVolumeMesh expects.
+  Properties are skipped on reading, and point/cell data are not written. (#7)
+
 ### Fixed
 - MED: files mixing blocks with and without families (e.g. volume cells without
   `FAM` and boundary faces with groups, as in snappyHexMesh meshes exported from
